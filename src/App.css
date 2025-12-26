@@ -1,0 +1,167 @@
+/* src/App.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+}
+
+#root {
+  height: 100vh;
+}
+
+/* Login Page Styling */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.login-container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+.login-container h2 {
+    text-align: center;
+    color: #1c1e21;
+    margin-bottom: 20px;
+}
+.input-group {
+    margin-bottom: 15px;
+}
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue for professional feel */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.login-button:hover {
+    background-color: #0056b3;
+}
+.error-message {
+    color: #fa383e;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #ffe3e4;
+    border-radius: 4px;
+}
+
+/* office-chat-frontend/src/components/AdminRegisterModal.css (NEW FILE) */
+
+.modal-overlay {
+    /* Full screen overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is above everything else */
+}
+
+.admin-register-container.modal-content {
+    /* Styles for the actual modal box */
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px; /* Max width for the form */
+    position: relative;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Re-use/style elements from the original AdminRegister.css */
+.admin-register-container h2 {
+    color: #3f51b5;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.register-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.back-button {
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.success-message {
+    color: green;
+    padding: 10px;
+    border: 1px solid green;
+    background: #e6ffe6;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    color: red;
+    padding: 10px;
+    border: 1px solid red;
+    background: #ffe6e6;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}

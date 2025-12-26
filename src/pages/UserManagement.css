@@ -1,0 +1,129 @@
+/* src/components/UserManagement.css */
+
+.user-management-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.user-management-container h2 {
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.user-management-container.loading {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.1em;
+    color: #007bff;
+}
+
+.error-message {
+    padding: 20px;
+    background-color: #ffdddd;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* --- Table Styling --- */
+
+.table-responsive {
+    overflow-x: auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Ensure table is readable on small screens */
+}
+
+.table-responsive th, .table-responsive td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table-responsive th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.table-responsive tr:hover {
+    background-color: #f1f8ff;
+}
+
+.table-responsive td.no-data {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-style: italic;
+}
+
+/* --- Action Buttons --- */
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.action-btn {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.2s;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* --- Role Tags --- */
+.name-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.role-tag {
+    font-size: 0.7em;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.role-admin {
+    background-color: #007bff; /* Blue */
+}
+.role-staff {
+    background-color: #28a745; /* Green */
+}
+/* Add more roles as needed */

@@ -1,0 +1,322 @@
+/* office-chat-frontend/src/pages/Chat.css (Crucial Layout Fixes) */
+
+.chat-app-container {
+    display: flex;
+    height: 100vh; /* Takes full viewport height */
+    width: 100vw;
+    font-family: Arial, sans-serif;
+}
+
+/* -----------------------------------
+   1. SIDEBAR STYLES
+   ----------------------------------- */
+.chat-sidebar {
+    width: 300px;
+    background-color: #f0f2f5;
+    padding: 15px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto; 
+    flex-shrink: 0;
+}
+.current-user-tag { font-size: 14px; color: #4a4a4a; margin-bottom: 5px; font-weight: 500; }
+.chat-list { margin-top: 20px; }
+.chat-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+.chat-item:hover { background-color: #e4e6e8; }
+.chat-item.active { background-color: #d1d7db; box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); }
+.chat-icon { font-size: 20px; margin-right: 10px; }
+.chat-name { margin: 0; font-size: 16px; font-weight: bold; }
+.chat-status { color: #65676b; font-size: 12px; }
+.logout-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* -----------------------------------
+   2. MAIN CHAT AREA LAYOUT FIX
+   ----------------------------------- */
+/* .chat- */
+.chat-main-area {
+    /* Must be a column flex container to stack header, body, and footer */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Takes up all remaining width */
+    max-height: 100vh; 
+}
+
+/*  */
+.chat-header, .input-footer {
+    flex-shrink: 0; 
+}
+
+/* 🛑 FIX: THIS IS THE SCROLLING ELEMENT 🛑 */
+.message-area {
+    flex-grow: 1; /* Takes all available vertical space */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 20px;
+    background-color: #e5ddd5; 
+}
+
+
+/* -----------------------------------
+   3. INPUT/FOOTER STYLES (Sticky Bottom)
+   ----------------------------------- */
+.input-footer {
+    flex-shrink: 0; /* Ensures it stays fixed at the bottom */
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    background-color: #f0f2f5;
+    z-index: 10;
+}
+.typing-status { height: 20px; color: #007bff; font-size: 14px; margin-bottom: 5px; }
+.input-area { display: flex; gap: 10px; }
+.message-input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+}
+.send-btn, .file-upload-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1; 
+    display: flex;
+    align-items: center;
+}
+
+/* -----------------------------------
+   4. MESSAGE BUBBLE FIXES
+   ----------------------------------- */
+
+.message-bubble-wrapper {
+    display: flex;
+    margin-bottom: 10px;
+}
+.message-bubble-wrapper.sent { justify-content: flex-end; }
+.message-bubble-wrapper.received { justify-content: flex-start; }
+.message-bubble {
+    max-width: 60%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+.message-bubble-wrapper.sent .message-bubble { align-items: flex-end; background-color: #dcf8c6; }
+.message-bubble-wrapper.received .message-bubble { align-items: flex-start; background-color: #ffffff; }
+
+/* 🟢 FIX: User Name Label Display */
+.sender-name-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #8b478d; 
+    margin-bottom: 2px;
+    align-self: flex-start;
+}
+.message-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.message-text { word-wrap: break-word; white-space: pre-wrap; font-size: 15px; }
+.message-timestamp { font-size: 10px; color: #777; margin-top: 3px; align-self: flex-end; }
+.message-controls { display: flex; gap: 5px; margin-top: 5px; align-self: flex-end; }
+.message-controls button { background: none; border: none; color: #007bff; cursor: pointer; font-size: 12px; padding: 0; }
+.edited-tag { font-size: 10px; color: #555; margin-left: 5px; }
+
+
+/* office-chat-frontend/src/pages/Chat.css (Additions for Badge) */
+
+.chat-item {
+    /* Ensure chat items use flexbox to position the badge */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    /* ... other chat-item styles ... */
+}
+
+.unread-badge {
+    background-color: #007bff; /* Primary blue for notification */
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: auto; /* Pushes the badge to the right */
+    font-weight: bold;
+}
+
+/* office-chat-frontend/src/pages/Chat.css (Status and Typing Styles) */
+
+/* --- Status Icons in Sidebar --- */
+.user-status-icon {
+    position: relative;
+    /* Add padding/margin to account for the status dot */
+    padding-right: 15px; 
+}
+
+.user-status-icon.online::after, 
+.user-status-icon.offline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid white; /* White border for visibility */
+}
+
+.user-status-icon.online::after {
+    background-color: #28a745; /* Green for online */
+}
+
+.user-status-icon.offline::after {
+    background-color: #6c757d; /* Gray for offline */
+}
+
+/* --- Status in Header --- */
+.chat-header-status {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.status-online {
+    color: #28a745; 
+    font-weight: bold;
+}
+
+.status-offline {
+    color: #6c757d;
+}
+
+/* --- Typing Status --- */
+.typing-status {
+    height: 20px;
+    font-size: 0.8rem;
+    color: #007bff;
+    margin-bottom: 5px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* office-chat-frontend/src/pages/Chat.css (Status and Admin Button Styles) */
+
+/* --- Status Icons in Sidebar --- */
+.user-status-icon {
+    position: relative;
+    padding-right: 15px; 
+}
+
+.user-status-icon.online::after, 
+.user-status-icon.offline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1px solid white; 
+}
+
+.user-status-icon.online::after {
+    background-color: #28a745; /* Green for online */
+}
+
+.user-status-icon.offline::after {
+    background-color: #6c757d; /* Gray for offline */
+}
+
+/* --- Status in Header --- */
+.chat-header-status {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.status-online {
+    color: #28a745; 
+    font-weight: bold;
+}
+
+.status-offline {
+    color: #6c757d;
+}
+
+/* --- Admin Add User Button Styling --- */
+.admin-add-user-button {
+    width: 90%; 
+    margin: 15px auto 10px auto; 
+    padding: 10px;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: block; 
+    transition: background-color 0.3s;
+}
+
+.admin-add-user-button:hover {
+    background-color: #0056b3;
+}
+/* --- Other elements (unread-badge, message-bubble, etc.) remain as previously provided --- */
+
+/* src/components/Chat.css */
+
+/* --- Image and Document Styling --- */
+
+.message-bubble .chat-image {
+    /* 🟢 Crucial: Constrain the image size */
+    max-width: 100%; /* Ensures the image never exceeds the width of its parent bubble */
+    max-height: 300px; /* Limits the image height (e.g., to 300 pixels) */
+    
+    /* Ensures aspect ratio is maintained and doesn't stretch */
+    width: auto; 
+    height: auto; 
+    
+    border-radius: 8px;
+    margin-top: 5px;
+    display: block; /* Helps with layout consistency */
+}
+
+/* Optional: Styling for uploaded documents/PDF links */
+.message-bubble .chat-document-link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
